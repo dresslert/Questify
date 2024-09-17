@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: questify-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: questify.local
+      http:
+        paths:
+          - path: /missions
+            pathType: Prefix
+            backend:
+              service:
+                name: mission-service
+                port:
+                  number: 3000
+          - path: /characters
+            pathType: Prefix
+            backend:
+              service:
+                name: character-service
+                port:
+                  number: 5000

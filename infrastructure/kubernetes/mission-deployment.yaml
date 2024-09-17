@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mission-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mission-service
+  template:
+    metadata:
+      labels:
+        app: mission-service
+    spec:
+      containers:
+      - name: mission-container
+        image: mission-service:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGO_URI
+          value: mongodb://mongo:27017/missiondb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mission-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3000
+  selector:
+    app: mission-service

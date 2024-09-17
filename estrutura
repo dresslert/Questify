@@ -1,0 +1,41 @@
+backend
+├── character-service
+├── gamification-service
+├── guild-service
+├── mission-service
+├── reward-service
+├── user-service
+docs
+frontend
+└── questify-web
+    ├── .next
+    ├── app
+    │   ├── fonts
+    │   ├── favicon.ico
+    │   ├── globals.css
+    │   ├── layout.js
+    │   ├── page.js
+    ├── node_modules
+    ├── .eslintrc.json
+    ├── .gitignore
+    ├── jsconfig.json
+    ├── next.config.mjs
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── README.md
+    ├── tailwind.config.js
+infrastructure
+└── kubernetes
+docker-compose.yml
+monitoring
+├── elk
+├── grafana
+└── prometheus
+
+Autenticação e Cadastro de Usuários (para permitir login e autenticação de usuários).
+Progressão de Personagem (para associar missões concluídas ao progresso).
+Sistema de Guildas (para permitir missões colaborativas e competições).
+Sistema de Recompensas (para distribuir recompensas e moedas após a conclusão de missões).
+Orquestração com Kubernetes (para garantir escalabilidade do sistema).
+Monitoramento com Prometheus/Grafana e Logging com ELK (para garantir observabilidade).
